@@ -81,7 +81,18 @@ enable_testing()
 add_executable(${PROJECT_NAME}-example 
   test/hopper_example.cc
 )
+
+add_executable(${PROJECT_NAME}-qto 
+  test/qto.cc
+)
+
 target_link_libraries(${PROJECT_NAME}-example  
+  PRIVATE
+    ${PROJECT_NAME} 
+    ifopt::ifopt_ipopt
+)
+
+target_link_libraries(${PROJECT_NAME}-qto  
   PRIVATE
     ${PROJECT_NAME} 
     ifopt::ifopt_ipopt
